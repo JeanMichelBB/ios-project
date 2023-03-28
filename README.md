@@ -1,5 +1,6 @@
 API: https://pokeapi.co/
 
+
 ## View 1: Login page
 
 - Button login
@@ -19,6 +20,7 @@ API: https://pokeapi.co/
 - Button: create account
 - ImageView: who is that pokemon? 
 - UIPickerView: chose a gender
+- Core Data
 
 ## View 3: List of pokemon's 
 - IUBar
