@@ -14,6 +14,8 @@
 		F124A29429D31ED80037B276 /* pokedex_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F124A29229D31ED80037B276 /* pokedex_ios.xcdatamodeld */; };
 		F124A29629D31ED90037B276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F124A29529D31ED90037B276 /* Assets.xcassets */; };
 		F124A29929D31ED90037B276 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F124A29729D31ED90037B276 /* LaunchScreen.storyboard */; };
+		F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */ = {isa = PBXBuildFile; fileRef = F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */; };
+		F15458C229D764940069AF0E /* who_pokemon.0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15458C129D764940069AF0E /* who_pokemon.0.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F124A29529D31ED90037B276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F124A29829D31ED90037B276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F124A29A29D31ED90037B276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Enamel_Pokeball_01_Top-View.png"; sourceTree = "<group>"; };
+		F15458C129D764940069AF0E /* who_pokemon.0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = who_pokemon.0.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		F124A28829D31ED80037B276 /* pokedex-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F15458BC29D7630D0069AF0E /* img */,
 				F124A28929D31ED80037B276 /* AppDelegate.swift */,
 				F124A28B29D31ED80037B276 /* SceneDelegate.swift */,
 				F124A28D29D31ED80037B276 /* ViewController.swift */,
@@ -68,6 +73,15 @@
 				F124A29229D31ED80037B276 /* pokedex_ios.xcdatamodeld */,
 			);
 			path = "pokedex-ios";
+			sourceTree = "<group>";
+		};
+		F15458BC29D7630D0069AF0E /* img */ = {
+			isa = PBXGroup;
+			children = (
+				F15458C129D764940069AF0E /* who_pokemon.0.jpg */,
+				F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,8 +142,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F15458C229D764940069AF0E /* who_pokemon.0.jpg in Resources */,
 				F124A29929D31ED90037B276 /* LaunchScreen.storyboard in Resources */,
 				F124A29629D31ED90037B276 /* Assets.xcassets in Resources */,
+				F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */,
 				F124A29129D31ED80037B276 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
