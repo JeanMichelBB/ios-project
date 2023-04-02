@@ -17,7 +17,7 @@
 		F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */ = {isa = PBXBuildFile; fileRef = F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */; };
 		F15458C229D764940069AF0E /* who_pokemon.0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15458C129D764940069AF0E /* who_pokemon.0.jpg */; };
 		F17B171229D9B45E0005F28A /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171129D9B45E0005F28A /* enumSegue.swift */; };
-		F17B171C29D9B64E0005F28A /* SelectedCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171B29D9B64E0005F28A /* SelectedCellViewController.swift */; };
+		F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171B29D9B64E0005F28A /* DetailViewController.swift */; };
 		F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */; };
 		F17B172029D9B6880005F28A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171F29D9B6880005F28A /* TableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +35,7 @@
 		F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Enamel_Pokeball_01_Top-View.png"; sourceTree = "<group>"; };
 		F15458C129D764940069AF0E /* who_pokemon.0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = who_pokemon.0.jpg; sourceTree = "<group>"; };
 		F17B171129D9B45E0005F28A /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
-		F17B171B29D9B64E0005F28A /* SelectedCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCellViewController.swift; sourceTree = "<group>"; };
+		F17B171B29D9B64E0005F28A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F17B171F29D9B6880005F28A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F124A28D29D31ED80037B276 /* ViewController.swift */,
-				F17B171B29D9B64E0005F28A /* SelectedCellViewController.swift */,
+				F17B171B29D9B64E0005F28A /* DetailViewController.swift */,
 				F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */,
 				F17B171F29D9B6880005F28A /* TableViewController.swift */,
 			);
@@ -215,7 +215,7 @@
 				F17B172029D9B6880005F28A /* TableViewController.swift in Sources */,
 				F124A29429D31ED80037B276 /* pokedex_ios.xcdatamodeld in Sources */,
 				F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */,
-				F17B171C29D9B64E0005F28A /* SelectedCellViewController.swift in Sources */,
+				F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */,
 				F124A28C29D31ED80037B276 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ enum Segue {
     
     static let ToTableViewController = "ToTableViewController"
     
-    static let ToSelectedCellViewController = "ToSelectedCellViewController"
+    static let toDetailViewController = "toDetailViewController"
     
     static let ToRegistrationViewController = "ToRegistrationViewController"
     
