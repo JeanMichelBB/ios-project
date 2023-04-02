@@ -70,21 +70,18 @@
 		F124A28829D31ED80037B276 /* pokedex-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F17B172529D9BE700005F28A /* Model */,
+				F17B172429D9BE620005F28A /* View */,
+				F17B172329D9BE4F0005F28A /* Controller */,
 				F17B172229D9BACF0005F28A /* Source */,
 				F17B172129D9BAB80005F28A /* Service */,
 				F15458BC29D7630D0069AF0E /* img */,
 				F124A28929D31ED80037B276 /* AppDelegate.swift */,
 				F124A28B29D31ED80037B276 /* SceneDelegate.swift */,
-				F124A28D29D31ED80037B276 /* ViewController.swift */,
-				F124A28F29D31ED80037B276 /* Main.storyboard */,
 				F124A29529D31ED90037B276 /* Assets.xcassets */,
 				F124A29729D31ED90037B276 /* LaunchScreen.storyboard */,
 				F124A29A29D31ED90037B276 /* Info.plist */,
 				F124A29229D31ED80037B276 /* pokedex_ios.xcdatamodeld */,
-				F17B171129D9B45E0005F28A /* enumSegue.swift */,
-				F17B171B29D9B64E0005F28A /* SelectedCellViewController.swift */,
-				F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */,
-				F17B171F29D9B6880005F28A /* TableViewController.swift */,
 			);
 			path = "pokedex-ios";
 			sourceTree = "<group>";
@@ -108,8 +105,35 @@
 		F17B172229D9BACF0005F28A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F17B171129D9B45E0005F28A /* enumSegue.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		F17B172329D9BE4F0005F28A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F124A28D29D31ED80037B276 /* ViewController.swift */,
+				F17B171B29D9B64E0005F28A /* SelectedCellViewController.swift */,
+				F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */,
+				F17B171F29D9B6880005F28A /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F17B172429D9BE620005F28A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F124A28F29D31ED80037B276 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F17B172529D9BE700005F28A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
