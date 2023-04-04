@@ -1,5 +1,5 @@
 //
-//  SelectedCellViewController.swift
+//  DetailViewController.swift
 //  pokedex-ios
 //
 //  Created by Jean-Michel Beaulieu Bérubé on 2023-04-02.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectedCellViewController: ViewController {
+class DetailViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
