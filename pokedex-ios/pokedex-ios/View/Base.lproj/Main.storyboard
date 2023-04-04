@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7d0-Fp-imp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7d0-Fp-imp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,6 +29,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="7qF-Dr-5CU" kind="show" identifier="toDetailViewController" id="bYu-7m-kOe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E29-oB-Wpu">
                                 <rect key="frame" x="225" y="789" width="169" height="73"/>
@@ -40,6 +42,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Sign up">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="RVl-Tj-YXM" kind="show" identifier="toRegistrationViewController" id="f2b-3p-KR9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1Y-Ra-i5P">
                                 <rect key="frame" x="57" y="489" width="103" height="28"/>
@@ -72,10 +77,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hUy-IN-rll"/>
-                    <connections>
-                        <segue destination="7qF-Dr-5CU" kind="show" identifier="ToTableViewController" id="0Hi-MM-wXF"/>
-                        <segue destination="RVl-Tj-YXM" kind="show" identifier="ToRegistrationViewController" id="K9a-0l-Nce"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ny3-ZW-THt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="706.47321428571422"/>
+            <point key="canvasLocation" x="1067" y="755"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="mPK-tx-gMW">
@@ -205,17 +206,17 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="C0b-bn-mC0"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="R6h-FK-SvL" kind="show" identifier="ToSelectedCellViewController" id="TTp-Zd-9Af"/>
+                        <segue destination="R6h-FK-SvL" kind="show" identifier="toDetailViewController" id="TTp-Zd-9Af"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ld-TD-kTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1942" y="3"/>
         </scene>
-        <!--Selected Cell View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="ACK-Mf-iAq">
             <objects>
-                <viewController id="R6h-FK-SvL" customClass="SelectedCellViewController" customModule="pokedex_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="R6h-FK-SvL" customClass="DetailViewController" customModule="pokedex_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hcl-Lx-I0a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
