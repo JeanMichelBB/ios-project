@@ -9,10 +9,10 @@ import Foundation
 
 enum Segue {
     
-    static let ToTableViewController = "ToTableViewController"
+    static let toTableViewController = "toTableViewController"
     
     static let toDetailViewController = "toDetailViewController"
     
-    static let ToRegistrationViewController = "ToRegistrationViewController"
+    static let toRegistrationViewController = "toRegistrationViewController"
     
 }
