@@ -15,7 +15,7 @@ class TableViewController: ViewController {
         super.viewDidLoad()
         
 
-        Network().getPokemons { [weak self] (pokemons) in
+        Network().getPokemon(name: "bulbasaur") { [weak self] (pokemons) in
             self?.pokemons = pokemons
             DispatchQueue.main.async {
                 print(pokemons)
