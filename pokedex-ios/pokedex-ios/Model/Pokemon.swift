@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Pokemon
-struct Pokemon: Codable {
+struct Pokemon: Decodable {
     let height, id: Int
     let name: String
     let sprites: Sprites
@@ -17,12 +17,13 @@ struct Pokemon: Codable {
 }
 
 // MARK: - Sprites
-struct Sprites: Codable {
+struct Sprites: Decodable {
+    let front_default : String
     let other: Other
 }
 
 // MARK: - Other
-struct Other: Codable {
+struct Other: Decodable {
     let dreamWorld: DreamWorld
 
     enum CodingKeys: String, CodingKey {
@@ -31,7 +32,7 @@ struct Other: Codable {
 }
 
 // MARK: - DreamWorld
-struct DreamWorld: Codable {
+struct DreamWorld: Decodable {
     let frontDefault: String
 
     enum CodingKeys: String, CodingKey {
@@ -40,13 +41,13 @@ struct DreamWorld: Codable {
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable {
+struct TypeElement: Decodable {
     let slot: Int
     let type: TypeType
 }
 
 // MARK: - TypeType
-struct TypeType: Codable {
+struct TypeType: Decodable {
     let name: String
     let url: String
 }
