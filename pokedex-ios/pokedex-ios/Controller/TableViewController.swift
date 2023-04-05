@@ -9,9 +9,20 @@ import UIKit
 
 class TableViewController: ViewController {
 
+    private var pokemons : Pokemon?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        Network().getPokemons { [weak self] (pokemons) in
+            self?.pokemons = pokemons
+//            print(pokemons)
+            DispatchQueue.main.async {
+//                self?.tableView.reloadData()
+                print(pokemons)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
