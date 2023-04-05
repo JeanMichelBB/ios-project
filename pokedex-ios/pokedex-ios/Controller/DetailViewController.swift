@@ -8,22 +8,32 @@
 import UIKit
 
 class DetailViewController: ViewController {
+    
+    //public var pokePokemon : API?
+    //public var pokeName : API?
+    //public var pokeNumber : API?
+    //public var pokeType : API?
+    //public var pokeDescription : API?
 
+    @IBOutlet weak var imgPokemon: UIImageView!
+    
+    @IBOutlet weak var lblName: UILabel!
+        
+    @IBOutlet weak var lblNumber: UILabel!
+    
+    @IBOutlet weak var lblType: UILabel!
+    
+    @IBOutlet weak var lblDescription: UILabel!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //imgPokemon.image = pokePokemon!.image
+        //lblName.text = " \(pokeName!.name)"
+        //lblNumber.text = " \(pokeNumber!.name)"
+        //lblType.text = " \(pokeType!.name)"
+        //lblDescription.text = " \(pokeDescription!.name)"
+
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
