@@ -11,12 +11,6 @@ class Network {
     func getPokemons(completionHandler: @escaping (Pokemon) -> Void){
         
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon/1")!
-//        let url = URL(string: "https://bit.ly/3sspdFO")! // WORKS
-//        let url = URL(string: "https://pokeapi.glitch.me/v1/pokemon/1")! // WORKS
-
-//        var request = URLRequest(url: url)
-
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
