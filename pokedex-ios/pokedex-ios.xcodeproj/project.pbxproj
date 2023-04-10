@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941DEE9329DCF63600272C20 /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DEE9229DCF63600272C20 /* PokemonList.swift */; };
+		945C621629DA0C9F00609629 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C621529DA0C9F00609629 /* Pokemon.swift */; };
+		945C621929DA434C00609629 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C621829DA434C00609629 /* Network.swift */; };
 		F124A28A29D31ED80037B276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28929D31ED80037B276 /* AppDelegate.swift */; };
 		F124A28C29D31ED80037B276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28B29D31ED80037B276 /* SceneDelegate.swift */; };
 		F124A28E29D31ED80037B276 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28D29D31ED80037B276 /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		941DEE9229DCF63600272C20 /* PokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
+		945C621529DA0C9F00609629 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		945C621829DA434C00609629 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F124A28629D31ED80037B276 /* pokedex-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pokedex-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F124A28929D31ED80037B276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F124A28B29D31ED80037B276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		945C621429DA0C8E00609629 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				945C621529DA0C9F00609629 /* Pokemon.swift */,
+				941DEE9229DCF63600272C20 /* PokemonList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		945C621729DA433800609629 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				945C621829DA434C00609629 /* Network.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F124A27D29D31ED80037B276 = {
 			isa = PBXGroup;
 			children = (
@@ -88,11 +111,11 @@
 		F124A28829D31ED80037B276 /* pokedex-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F17B172529D9BE700005F28A /* Model */,
+				945C621729DA433800609629 /* Service */,
+				945C621429DA0C8E00609629 /* Model */,
 				F17B172429D9BE620005F28A /* View */,
 				F17B172329D9BE4F0005F28A /* Controller */,
 				F17B172229D9BACF0005F28A /* Source */,
-				F17B172129D9BAB80005F28A /* Service */,
 				F15458BC29D7630D0069AF0E /* img */,
 				F124A28929D31ED80037B276 /* AppDelegate.swift */,
 				F124A28B29D31ED80037B276 /* SceneDelegate.swift */,
@@ -241,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945C621929DA434C00609629 /* Network.swift in Sources */,
 				F124A28E29D31ED80037B276 /* ViewController.swift in Sources */,
 				F124A28A29D31ED80037B276 /* AppDelegate.swift in Sources */,
 				F17B171229D9B45E0005F28A /* enumSegue.swift in Sources */,
@@ -251,6 +275,8 @@
 				F1B3E8BB29DC682D00547CEF /* User.swift in Sources */,
 				F1B3E8B529DC5BBD00547CEF /* Toast.swift in Sources */,
 				F1ED896C29DCFA8100956999 /* PokemonTableViewCell.swift in Sources */,
+				945C621629DA0C9F00609629 /* Pokemon.swift in Sources */,
+				941DEE9329DCF63600272C20 /* PokemonList.swift in Sources */,
 				F124A28C29D31ED80037B276 /* SceneDelegate.swift in Sources */,
 				F1B3E8B729DC63B500547CEF /* CoreDataProvider.swift in Sources */,
 			);

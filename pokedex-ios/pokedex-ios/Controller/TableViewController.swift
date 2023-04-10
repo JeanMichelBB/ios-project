@@ -9,12 +9,24 @@ import UIKit
 
 class TableViewController: ViewController {
 
+    private var pokemonList : [Pokemon] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.getPokemons()
         // Do any additional setup after loading the view.
     }
     
+    func getPokemons() {
+        Network().getPokemonList() { [weak self] (pokemons) in
+            for (index, item) in pokemons.results.enumerated() {
+                Network().getPokemon(name: item.name, completionHandler: {(pokemon) in
+                    self!.pokemonList.append(pokemon)
+                    print("Item \(index) : \(pokemon)")
+                })
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
