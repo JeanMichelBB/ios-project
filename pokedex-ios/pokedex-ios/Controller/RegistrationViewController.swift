@@ -26,16 +26,12 @@ class RegistrationViewController: ViewController {
         
         
         if (txtPassword1.isSecureTextEntry){
-            //switchPasswordVisibility.
             txtPassword1.isSecureTextEntry.toggle()
             txtPassword2.isSecureTextEntry.toggle()
         }else{
-            //switchPasswordVisibility.
             txtPassword1.isSecureTextEntry.toggle()
             txtPassword2.isSecureTextEntry.toggle()
         }
-    //txtPassword1.isSecureTextEntry.toggle()
-    //txtPassword2.isSecureTextEntry.toggle()
     }
     
     
