@@ -11,15 +11,20 @@ import Foundation
 struct Pokemon: Decodable {
     let height, id: Int
     let name: String
-    let sprites: Sprites
-    let types: [TypeElement]
+    let sprites: PokemonSprites
+    let types: [PokemonType]
     let weight: Int
 }
 
 // MARK: - Sprites
-struct Sprites: Decodable {
-    let front_default : String
+struct PokemonSprites: Decodable {
+    let frontDefaultMini: String
     let other: Other
+    
+    private enum CodingKeys: String, CodingKey {
+        case frontDefaultMini = "front_default"
+        case other
+    }
 }
 
 // MARK: - Other
@@ -40,8 +45,8 @@ struct DreamWorld: Decodable {
     }
 }
 
-// MARK: - TypeElement
-struct TypeElement: Decodable {
+// MARK: - PokemonType
+struct PokemonType: Decodable {
     let slot: Int
     let type: TypeType
 }
@@ -50,4 +55,14 @@ struct TypeElement: Decodable {
 struct TypeType: Decodable {
     let name: String
     let url: String
+}
+
+// MARK: - TypeType
+struct PokemonAbility: Codable {
+    let ability: Ability
+    
+    struct Ability: Codable {
+        let name: String
+        let url: String
+    }
 }

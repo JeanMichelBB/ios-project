@@ -8,14 +8,8 @@
 import Foundation
 
 class Network {
-    private let baseURL : String
-    private let pokemonList : [Pokemon]?
+    private let baseURL : String = "https://pokeapi.co/api/v2/pokemon"
 
-    init(){
-        self.baseURL = "https://pokeapi.co/api/v2/pokemon"
-        self.pokemonList = []
-    }
-    
     func getPokemonList(completionHandler: @escaping (PokemonList) -> Void){
         
         let url = URL(string: "\(self.baseURL)?limit=151")!
@@ -23,8 +17,7 @@ class Network {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let pokemonList = try? JSONDecoder().decode(PokemonList.self, from: data) {
-//                    self.getPokemon(pokem)
-                    print(pokemonList)
+                    completionHandler(pokemonList)
                 } else {
                     print("Invalid Response")
                 }
@@ -40,7 +33,7 @@ class Network {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) {
-                    print(pokemon)
+                    completionHandler(pokemon)
                 } else {
                     print("Pokemon: Invalid Response")
                 }

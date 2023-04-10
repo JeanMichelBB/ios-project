@@ -1,19 +1,19 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
 //
-//   let pokemonList = try? JSONDecoder().decode(PokemonList.self, from: jsonData)
+//  PokemonList.swift
+//  pokedex-ios
+//
+//  Created by vampirito on 2023-04-02.
+//
 
 import Foundation
 
 // MARK: - PokemonList
 struct PokemonList: Decodable {
-    let count: Int
-    let next: String
-    let results: [Result]
+    let results: [PokemonListItem]
 }
 
 // MARK: - Result
-struct Result: Decodable {
+struct PokemonListItem: Decodable {
     let name: String
     let url: String
 }
