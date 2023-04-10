@@ -23,9 +23,9 @@
 		F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171B29D9B64E0005F28A /* DetailViewController.swift */; };
 		F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */; };
 		F17B172029D9B6880005F28A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171F29D9B6880005F28A /* TableViewController.swift */; };
+		F1A1B3C729E4B72C00D48AD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B3C629E4B72C00D48AD7 /* User.swift */; };
+		F1A1B3C929E4B73B00D48AD7 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */; };
 		F1B3E8B529DC5BBD00547CEF /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3E8B429DC5BBD00547CEF /* Toast.swift */; };
-		F1B3E8B729DC63B500547CEF /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */; };
-		F1B3E8BB29DC682D00547CEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3E8BA29DC682D00547CEF /* User.swift */; };
 		F1ED896629DCF4F100956999 /* GreenLeafMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1ED896429DCF4F100956999 /* GreenLeafMap.jpg */; };
 		F1ED896729DCF4F100956999 /* Bulbizarre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1ED896529DCF4F100956999 /* Bulbizarre.jpg */; };
 		F1ED896C29DCFA8100956999 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */; };
@@ -53,6 +53,8 @@
 		F17B171B29D9B64E0005F28A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F17B171F29D9B6880005F28A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F1A1B3C629E4B72C00D48AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		F1B3E8B429DC5BBD00547CEF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		F1B3E8BA29DC682D00547CEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		945C621429DA0C8E00609629 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1A1B3C629E4B72C00D48AD7 /* User.swift */,
 				945C621529DA0C9F00609629 /* Pokemon.swift */,
 				941DEE9229DCF63600272C20 /* PokemonList.swift */,
 			);
@@ -87,6 +90,7 @@
 		945C621729DA433800609629 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */,
 				945C621829DA434C00609629 /* Network.swift */,
 			);
 			path = Service;
@@ -97,6 +101,7 @@
 			children = (
 				F124A28829D31ED80037B276 /* pokedex-ios */,
 				F124A28729D31ED80037B276 /* Products */,
+				F1A1B3C529E4B6DC00D48AD7 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,14 +145,6 @@
 			path = img;
 			sourceTree = "<group>";
 		};
-		F17B172129D9BAB80005F28A /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		F17B172229D9BACF0005F28A /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,12 +175,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F17B172529D9BE700005F28A /* Model */ = {
+		F1A1B3C529E4B6DC00D48AD7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				F1B3E8BA29DC682D00547CEF /* User.swift */,
+				F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */,
 			);
-			path = Model;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,20 +263,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				945C621929DA434C00609629 /* Network.swift in Sources */,
+				F1A1B3C929E4B73B00D48AD7 /* CoreDataProvider.swift in Sources */,
 				F124A28E29D31ED80037B276 /* ViewController.swift in Sources */,
 				F124A28A29D31ED80037B276 /* AppDelegate.swift in Sources */,
 				F17B171229D9B45E0005F28A /* enumSegue.swift in Sources */,
+				F1A1B3C729E4B72C00D48AD7 /* User.swift in Sources */,
 				F17B172029D9B6880005F28A /* TableViewController.swift in Sources */,
 				F124A29429D31ED80037B276 /* pokedex_ios.xcdatamodeld in Sources */,
 				F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */,
 				F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */,
-				F1B3E8BB29DC682D00547CEF /* User.swift in Sources */,
 				F1B3E8B529DC5BBD00547CEF /* Toast.swift in Sources */,
 				F1ED896C29DCFA8100956999 /* PokemonTableViewCell.swift in Sources */,
 				945C621629DA0C9F00609629 /* Pokemon.swift in Sources */,
 				941DEE9329DCF63600272C20 /* PokemonList.swift in Sources */,
 				F124A28C29D31ED80037B276 /* SceneDelegate.swift in Sources */,
-				F1B3E8B729DC63B500547CEF /* CoreDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
