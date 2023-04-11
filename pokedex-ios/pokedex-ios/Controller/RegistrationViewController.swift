@@ -78,7 +78,6 @@ class RegistrationViewController: ViewController {
             return
         }
 
-            let newUser = User(context: context)
         do
         {
             let newUser = User(context: context)
