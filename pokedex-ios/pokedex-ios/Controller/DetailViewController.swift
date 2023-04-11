@@ -47,6 +47,8 @@ class DetailViewController: ViewController {
             self!.lblName.text = self!.selectedPokemon!.name.capitalized
             self!.lblNumber.text = "#\(self!.selectedPokemon!.id)"
             
+            self!.lblType.text = self!.selectedPokemon!.types[0].type.name.capitalized
+            
             if self!.selectedPokemon!.types.count > 1 {
                 self!.lblType2.text = self!.selectedPokemon!.types[1].type.name.capitalized
             } else {
