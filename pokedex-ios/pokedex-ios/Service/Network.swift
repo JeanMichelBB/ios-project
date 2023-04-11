@@ -11,8 +11,8 @@ class Network {
     private let baseURL : String = "https://pokeapi.co/api/v2/pokemon"
 
     func getPokemonList(completionHandler: @escaping (PokemonList) -> Void){
-        
-        let url = URL(string: "\(self.baseURL)?limit=151")!
+        // TODO: Add limit and offset to fetch batches of pokemons
+        let url = URL(string: "\(self.baseURL)?limit=10")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {

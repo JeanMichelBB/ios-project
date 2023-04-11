@@ -9,7 +9,8 @@ import UIKit
 
 class DetailViewController: ViewController {
 
-
+    public var selectedPokemon: Pokemon?
+    
     @IBOutlet weak var imgPokemon: UIImageView!
     
     @IBOutlet weak var lblName: UILabel!

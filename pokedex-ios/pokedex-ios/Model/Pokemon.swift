@@ -9,7 +9,8 @@ import Foundation
 
 // MARK: - Pokemon
 struct Pokemon: Decodable {
-    let height, id: Int
+    let height: Int
+    let id: Int
     let name: String
     let sprites: PokemonSprites
     let types: [PokemonType]

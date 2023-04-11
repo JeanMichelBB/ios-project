@@ -56,8 +56,6 @@
 		F1A1B3C629E4B72C00D48AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		F1B3E8B429DC5BBD00547CEF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
-		F1B3E8BA29DC682D00547CEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1ED896429DCF4F100956999 /* GreenLeafMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenLeafMap.jpg; sourceTree = "<group>"; };
 		F1ED896529DCF4F100956999 /* Bulbizarre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bulbizarre.jpg; sourceTree = "<group>"; };
 		F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				F124A28829D31ED80037B276 /* pokedex-ios */,
 				F124A28729D31ED80037B276 /* Products */,
-				F1A1B3C529E4B6DC00D48AD7 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,15 +170,6 @@
 				F1ED896B29DCFA8100956999 /* PokemonTableViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F1A1B3C529E4B6DC00D48AD7 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				F1B3E8BA29DC682D00547CEF /* User.swift */,
-				F1B3E8B629DC63B500547CEF /* CoreDataProvider.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
