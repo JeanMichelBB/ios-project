@@ -37,7 +37,7 @@ class DetailViewController: ViewController {
         Network().getPokemonDetail(name: selectedPokemon!.name, completionHandler: { [weak self] (detail) in
             self!.lblColor.text = detail.color.name.capitalized
             if let flavorText = detail.flavorTextEntries.first(where: {$0.language.name == "en"})?.flavorText {
-                self!.lblDescription.text = flavorText
+                self!.lblDescription.text = self!.removeNewlines(from: flavorText)
             }
             self!.lblGeneration.text = detail.generation.name.capitalized
             self!.lblHabitat.text = detail.habitat.name.capitalized
@@ -62,7 +62,10 @@ class DetailViewController: ViewController {
             }.resume()
         })       
     }
-    
+    func removeNewlines(from inputString: String) -> String {
+        return inputString.replacingOccurrences(of: "\n", with: "", options: .regularExpression)
+    }
+
     
     
     
