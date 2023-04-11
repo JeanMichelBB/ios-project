@@ -30,15 +30,15 @@ struct PokemonSprites: Decodable {
 
 // MARK: - Other
 struct Other: Decodable {
-    let dreamWorld: DreamWorld
+    let officialArtwork: OfficialArtwork
 
     enum CodingKeys: String, CodingKey {
-        case dreamWorld = "dream_world"
+        case officialArtwork = "official-artwork"
     }
 }
 
-// MARK: - DreamWorld
-struct DreamWorld: Decodable {
+// MARK: - OfficialArtwork
+struct OfficialArtwork: Decodable {
     let frontDefault: String
 
     enum CodingKeys: String, CodingKey {

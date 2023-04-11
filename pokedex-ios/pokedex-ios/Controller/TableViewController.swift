@@ -61,6 +61,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected pokemon: \(pokemonList[indexPath.row].name)")
         self.selectedPokemon = pokemonList[indexPath.row]
+        self.performSegue(withIdentifier: Segue.toDetailViewController, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +71,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             detailViewController.selectedPokemon = self.selectedPokemon
         }
     }
-    
+      
     // TODO: Add scrollViewDidScroll to load more data when the user scrolls
 }

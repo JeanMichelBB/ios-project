@@ -40,15 +40,18 @@ struct Habitat: Codable {
 struct Shape: Codable {
     let name: String
 }
-
-
+// MARK: - Language
+struct Language: Codable {
+    let name: String
+}
 
 // MARK: - FlavorTextEntry
 struct FlavorTextEntry: Codable {
     let flavorText: String
-
+    let language: Language
 
     enum CodingKeys: String, CodingKey {
         case flavorText = "flavor_text"
+        case language
     }
 }
