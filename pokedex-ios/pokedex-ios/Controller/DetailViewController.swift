@@ -38,6 +38,7 @@ class DetailViewController: ViewController {
             self!.lblColor.text = detail.color.name.capitalized
             if let flavorText = detail.flavorTextEntries.first(where: {$0.language.name == "en"})?.flavorText {
                 self!.lblDescription.text = self!.removeNewlines(from: flavorText)
+                print("item: \(self!.removeNewlines(from: flavorText))")
             }
             self!.lblGeneration.text = detail.generation.name.capitalized
             self!.lblHabitat.text = detail.habitat.name.capitalized
@@ -63,8 +64,8 @@ class DetailViewController: ViewController {
         })       
     }
     func removeNewlines(from inputString: String) -> String {
-        return inputString.replacingOccurrences(of: "\n", with: "", options: .regularExpression)
-    }
+        let cleanedString = inputString.replacingOccurrences(of: "\n", with: " ")
+        return cleanedString.replacingOccurrences(of: "\u{0C}", with: " ")    }
 
     
     
