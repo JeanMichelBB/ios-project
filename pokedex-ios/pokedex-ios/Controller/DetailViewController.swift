@@ -23,6 +23,18 @@ class DetailViewController: ViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        Network().getPokemonDetail(name: "bulbasaur", completionHandler: { [weak self] (detail) in
+                
+            print("Item: \(detail.
+            print("Item: \(detail.flavorTextEntries[0].flavorText)")
+            //print("Item: \(detail
+            //print("Item: \(detail
+            //print("Item: \(detail
 
+        })
     }
+    
+    
+    
+    
 }

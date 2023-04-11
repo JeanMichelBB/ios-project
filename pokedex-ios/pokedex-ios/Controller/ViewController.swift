@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imgBackground: UIImageView!
     
-    
+    /*
     private var loggedUser : User?
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         }
     
     }
-    
+   */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

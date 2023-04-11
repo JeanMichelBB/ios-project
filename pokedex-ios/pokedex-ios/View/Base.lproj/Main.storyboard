@@ -225,7 +225,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="7n7-4N-YWF">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="C0b-bn-mC0"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="C0b-bn-mC0"/>
+                            <barButtonItem title="Item" image="arrowshape.right.fill" catalog="system" id="ggD-Va-KGL">
+                                <connections>
+                                    <segue destination="R6h-FK-SvL" kind="show" id="a4j-nm-N6p"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Uxr-ak-lUw" id="0Zf-aA-rNy"/>
@@ -318,11 +325,15 @@
             <point key="canvasLocation" x="137.68115942028987" y="3.3482142857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="a4j-nm-N6p"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Bulbizarre.jpg" width="736" height="1308"/>
         <image name="Enamel_Pokeball_01_Top-View.png" width="800" height="800"/>
         <image name="GreenLeafMap.jpg" width="320" height="568"/>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="figure.walk" catalog="system" width="95" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
