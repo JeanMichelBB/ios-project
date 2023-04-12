@@ -9,36 +9,41 @@ import Foundation
 
 class Network {
     private let baseURL : String = "https://pokeapi.co/api/v2/pokemon"
-
-    func getPokemonList(completionHandler: @escaping (PokemonList) -> Void){
-        // TODO: Add limit and offset to fetch batches of pokemons
-        let url = URL(string: "\(self.baseURL)?limit=10")!
+    private var cachedPokemon : Pokemon?
+    
+    func getPokemonList(offset: Int, limit: Int, completionHandler: @escaping (Result<[PokemonListItem], Error>) -> Void){
+        let url = URL(string: "\(self.baseURL)?limit=\(limit)&offset=\(offset)")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let pokemonList = try? JSONDecoder().decode(PokemonList.self, from: data) {
-                    completionHandler(pokemonList)
+                    completionHandler(.success(pokemonList.results))
                 } else {
-                    print("Invalid Response")
+                    completionHandler(.failure(error!.localizedDescription as! Error))
                 }
             } else if let error = error {
-                print("HTTP Request Failed \(error)")
+                completionHandler(.failure(error.localizedDescription as! Error))
             }
         }
         task.resume()
     }
     
-    func getPokemon(name : String, completionHandler: @escaping (Pokemon) -> Void){
+    func getPokemon(name : String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void){
+        if let cachedPokemon = cachedPokemon {
+            completionHandler(.success(cachedPokemon))
+            return
+        }
         let url = URL(string: "\(self.baseURL)/\(name)")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) {
-                    completionHandler(pokemon)
+                    self.cachedPokemon = pokemon
+                    completionHandler(.success(pokemon))
                 } else {
-                    print("Pokemon: Invalid Response")
+                    completionHandler(.failure(error!.localizedDescription as! Error))
                 }
             } else if let error = error {
-                print("Pokemon HTTP Request Failed \(error)")
+                completionHandler(.failure(error.localizedDescription as! Error))
             }
         }
         task.resume()
