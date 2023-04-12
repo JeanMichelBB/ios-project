@@ -8,10 +8,16 @@
 import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    private var pokemonList : [Pokemon] = []
+    private var pokemons : [Pokemon] = []
     private var pokemonInitialResponse : [PokemonListItem] = []
-    public var loggedUser : User?
     private var selectedPokemon : Pokemon?
+    
+    private var currentPage = 0
+    private var totalPokemonCount = 150
+    private let pageSize = 10
+    private var isLoading = false
+    
+    public var loggedUser : User?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var txtLoggedUser: UILabel!
@@ -22,35 +28,75 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         txtLoggedUser.text = "Welcome \(loggedUser?.username ?? "")!"
         
         tableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: "PokemonTableViewCell")
-        
-        Network().getPokemonList() { [weak self] (pokemons) in
-            self?.pokemonInitialResponse = pokemons.results
-            self?.loadPokemonDetails(pokemonList: pokemons.results)
-        }
-        
+                
         tableView.delegate = self
         tableView.dataSource = self
+        self.loadData()
+    }
+    
+    func loadData() {
+        self.isLoading = true
+        
+        let offset = self.pokemonInitialResponse.count
+        let page = (offset / self.pageSize) + 1
+        
+        if offset < self.totalPokemonCount {
+            Network().getPokemonList(offset: offset, limit: self.pageSize) { [weak self] (result) in
+                
+                switch result {
+                case .failure(let error):
+                    print("Error loading the pokemon list: \(error.localizedDescription)")
+                    self?.isLoading = false
+                    
+                case .success(let pokemonList):
+                    self?.currentPage = page
+                    
+                    self?.pokemonInitialResponse.append(contentsOf: pokemonList)
+                    self?.loadPokemonDetails(pokemonList: pokemonList)
+                    self?.isLoading = false
+                }
+            }
+        } else {
+            self.isLoading = false
+        }
     }
     
     func loadPokemonDetails(pokemonList : [PokemonListItem]) -> Void {
-        for element in self.pokemonInitialResponse {
-            Network().getPokemon(name: element.name, completionHandler: { [weak self] (pokemon) in
-                self!.pokemonList.append(pokemon)
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+        for element in pokemonList {
+            Network().getPokemon(name: element.name, completionHandler: { [weak self] (result) in
+                switch result {
+                case .success(let pokemon):
+                    self!.pokemons.append(pokemon)
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print("Error loading pokemon information: \(error.localizedDescription) ")
                 }
             })
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !self.isLoading {
+                self.loadData()
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemonList.count
+        return self.pokemons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = self.tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as! PokemonTableViewCell
         
-        customCell.setCellContent(pokemon: pokemonList[indexPath.row])
+        customCell.setCellContent(pokemon: pokemons[indexPath.row])
         return customCell
     }
     
@@ -59,8 +105,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected pokemon: \(pokemonList[indexPath.row].name)")
-        self.selectedPokemon = pokemonList[indexPath.row]
+        print("You selected pokemon: \(self.pokemons[indexPath.row].name)")
+        self.selectedPokemon = self.pokemons[indexPath.row]
         self.performSegue(withIdentifier: Segue.toDetailViewController, sender: self)
     }
     
@@ -71,6 +117,4 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             detailViewController.selectedPokemon = self.selectedPokemon
         }
     }
-      
-    // TODO: Add scrollViewDidScroll to load more data when the user scrolls
 }
