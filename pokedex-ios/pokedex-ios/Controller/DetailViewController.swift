@@ -31,10 +31,14 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var lblType2: UILabel!
     
+    @IBOutlet weak var imgPokemonBackground: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Network().getPokemonDetail(name: selectedPokemon!.name, completionHandler: { [weak self] (detail) in
+            let color : String = detail.color.name
+            Helper().setBackgroundColor(from: color, to: self!.imgPokemonBackground)
             self!.lblColor.text = detail.color.name.capitalized
             if let flavorText = detail.flavorTextEntries.first(where: {$0.language.name == "en"})?.flavorText {
                 self!.lblDescription.text = self!.removeNewlines(from: flavorText)
@@ -47,11 +51,20 @@ class DetailViewController: ViewController {
             let url = URL(string: detailImageUrl)!
             self!.lblName.text = self!.selectedPokemon!.name.capitalized
             self!.lblNumber.text = "#\(self!.selectedPokemon!.id)"
-            
+            let type1 : String = self!.selectedPokemon!.types[0].type.name
             self!.lblType.text = self!.selectedPokemon!.types[0].type.name.capitalized
-            
+            self!.lblType.backgroundColor = Helper().getLabelColor(label: type1)
+            self!.lblType.layer.masksToBounds = true
+            self!.lblType.layer.cornerRadius = 5
+            self!.lblType.text = type1.uppercased()
             if self!.selectedPokemon!.types.count > 1 {
-                self!.lblType2.text = self!.selectedPokemon!.types[1].type.name.capitalized
+                let type2 : String = self!.selectedPokemon!.types[1].type.name
+                self!.lblType2.isHidden = false
+                self!.lblType2.text = type2.uppercased()
+                self!.lblType2.layer.masksToBounds = true
+                self!.lblType2.layer.cornerRadius = 5
+                self!.lblType2.text = type2.uppercased()
+                self!.lblType2.backgroundColor = Helper().getLabelColor(label: type2)
             } else {
                 self!.lblType2.isHidden = true
             }
@@ -66,8 +79,4 @@ class DetailViewController: ViewController {
     func removeNewlines(from inputString: String) -> String {
         let cleanedString = inputString.replacingOccurrences(of: "\n", with: " ")
         return cleanedString.replacingOccurrences(of: "\u{0C}", with: " ")    }
-
-    
-    
-    
 }

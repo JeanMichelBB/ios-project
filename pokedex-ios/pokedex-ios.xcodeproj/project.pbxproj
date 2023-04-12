@@ -27,6 +27,7 @@
 		F1A1B3C729E4B72C00D48AD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B3C629E4B72C00D48AD7 /* User.swift */; };
 		F1A1B3C929E4B73B00D48AD7 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */; };
 		F1B3E8B529DC5BBD00547CEF /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3E8B429DC5BBD00547CEF /* Toast.swift */; };
+		F1CF332329E61CA600257010 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF332229E61CA600257010 /* Helper.swift */; };
 		F1ED896629DCF4F100956999 /* GreenLeafMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1ED896429DCF4F100956999 /* GreenLeafMap.jpg */; };
 		F1ED896729DCF4F100956999 /* Bulbizarre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1ED896529DCF4F100956999 /* Bulbizarre.jpg */; };
 		F1ED896C29DCFA8100956999 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		F1A1B3C629E4B72C00D48AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		F1B3E8B429DC5BBD00547CEF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		F1CF332229E61CA600257010 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F1ED896429DCF4F100956999 /* GreenLeafMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenLeafMap.jpg; sourceTree = "<group>"; };
 		F1ED896529DCF4F100956999 /* Bulbizarre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bulbizarre.jpg; sourceTree = "<group>"; };
 		F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */,
 				945C621829DA434C00609629 /* Network.swift */,
+				F1CF332229E61CA600257010 /* Helper.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				F17B171229D9B45E0005F28A /* enumSegue.swift in Sources */,
 				F1A1B3C729E4B72C00D48AD7 /* User.swift in Sources */,
 				F17B172029D9B6880005F28A /* TableViewController.swift in Sources */,
+				F1CF332329E61CA600257010 /* Helper.swift in Sources */,
 				F124A29429D31ED80037B276 /* pokedex_ios.xcdatamodeld in Sources */,
 				F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */,
 				F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */,
