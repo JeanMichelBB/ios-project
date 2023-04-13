@@ -9,6 +9,7 @@ import UIKit
 
 class PokemonTableViewCell: UITableViewCell {
     
+    private var imageCache = [String: UIImage]()
     
     @IBOutlet weak var imgPokemon: UIImageView!
     
@@ -28,18 +29,18 @@ class PokemonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setCellContent(pokemon : Pokemon) {
+    func setCellContent(pokemon: Pokemon) {
         lblName.text = pokemon.name.capitalized
         lblNumber.text = "#\(pokemon.id)"
         
-        let type1 : String = pokemon.types[0].type.name
+        let type1: String = pokemon.types[0].type.name
         lblType1.text = type1.uppercased()
         lblType1.backgroundColor = getLabelColor(label: type1)
         lblType1.layer.masksToBounds = true
         lblType1.layer.cornerRadius = 5
         
         if pokemon.types.count > 1 {
-            let type2 : String = pokemon.types[1].type.name
+            let type2: String = pokemon.types[1].type.name
             lblType2.isHidden = false
             lblType2.text = type2.uppercased()
             lblType2.layer.masksToBounds = true
@@ -49,17 +50,33 @@ class PokemonTableViewCell: UITableViewCell {
             lblType2.isHidden = true
         }
         
-        // TODO: Put this into a function (how not to show images in the wrong pokemons?)
         let frontDefaultImageUrl = pokemon.sprites.frontDefaultMini
         let url = URL(string: frontDefaultImageUrl)!
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                self.imgPokemon.image = UIImage(data: data)
-            }
-        }.resume()
+        // Cancel the previous image download request for this cell (if any)
+        URLSession.shared.getAllTasks { tasks in
+            tasks
+                .filter { $0.originalRequest?.url == url }
+                .forEach { $0.cancel() }
+        }
+        
+        if let cachedImage = imageCache[frontDefaultImageUrl] {
+            self.imgPokemon.image = cachedImage
+        } else {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                // Save the downloaded image to the cache
+                let image = UIImage(data: data)!
+                self.imageCache[frontDefaultImageUrl] = image
+                
+                DispatchQueue.main.async {
+                    self.imgPokemon.image = image
+                }
+            }.resume()
+        }
     }
+
     
     func getLabelColor(label : String) -> UIColor {
         switch label {

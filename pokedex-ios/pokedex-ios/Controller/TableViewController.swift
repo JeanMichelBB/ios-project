@@ -67,6 +67,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 switch result {
                 case .success(let pokemon):
                     self!.pokemons.append(pokemon)
+                    self!.pokemons.sort { $0.id < $1.id }
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }

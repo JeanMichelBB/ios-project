@@ -8,13 +8,13 @@
 import UIKit
 
 class DetailViewController: ViewController {
-
+    
     public var selectedPokemon: Pokemon?
     
     @IBOutlet weak var imgPokemon: UIImageView!
     
     @IBOutlet weak var lblName: UILabel!
-        
+    
     @IBOutlet weak var lblNumber: UILabel!
     
     @IBOutlet weak var lblType: UILabel!
@@ -33,50 +33,66 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var imgPokemonBackground: UIImageView!
     
+    @IBOutlet weak var imgTextBackground: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgTextBackground.layer.cornerRadius = 50
         
-        Network().getPokemonDetail(name: selectedPokemon!.name, completionHandler: { [weak self] (detail) in
-            let color : String = detail.color.name
-            Helper().setBackgroundColor(from: color, to: self!.imgPokemonBackground)
-            self!.lblColor.text = detail.color.name.capitalized
-            if let flavorText = detail.flavorTextEntries.first(where: {$0.language.name == "en"})?.flavorText {
-                self!.lblDescription.text = self!.removeNewlines(from: flavorText)
-                print("item: \(self!.removeNewlines(from: flavorText))")
+        Network().getPokemonDetail(name: selectedPokemon!.name) { [weak self] detail in
+            DispatchQueue.main.async {
+                self?.configureDetailView(with: detail)
             }
-            self!.lblGeneration.text = detail.generation.name.capitalized
-            self!.lblHabitat.text = detail.habitat.name.capitalized
-            self!.lblShape.text = detail.shape.name.capitalized
-            let detailImageUrl = self!.selectedPokemon!.sprites.other.officialArtwork.frontDefault
-            let url = URL(string: detailImageUrl)!
-            self!.lblName.text = self!.selectedPokemon!.name.capitalized
-            self!.lblNumber.text = "#\(self!.selectedPokemon!.id)"
-            let type1 : String = self!.selectedPokemon!.types[0].type.name
-            self!.lblType.text = self!.selectedPokemon!.types[0].type.name.capitalized
-            self!.lblType.backgroundColor = Helper().getLabelColor(label: type1)
-            self!.lblType.layer.masksToBounds = true
-            self!.lblType.layer.cornerRadius = 5
-            self!.lblType.text = type1.uppercased()
-            if self!.selectedPokemon!.types.count > 1 {
-                let type2 : String = self!.selectedPokemon!.types[1].type.name
-                self!.lblType2.isHidden = false
-                self!.lblType2.text = type2.uppercased()
-                self!.lblType2.layer.masksToBounds = true
-                self!.lblType2.layer.cornerRadius = 5
-                self!.lblType2.text = type2.uppercased()
-                self!.lblType2.backgroundColor = Helper().getLabelColor(label: type2)
-            } else {
-                self!.lblType2.isHidden = true
-            }
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async() {
-                    self!.imgPokemon.image = UIImage(data: data)
-                }
-            }.resume()
-        })       
+            self?.loadPokemonImage(from: self!.selectedPokemon!.sprites.other.officialArtwork.frontDefault)
+        }
     }
+
+    func configureDetailView(with detail: PokemonDetail) {
+        let color = detail.color.name
+        Helper().setBackgroundColor(from: color, to: imgPokemonBackground)
+        lblColor.text = color.capitalized
+        if let flavorText = detail.flavorTextEntries.first(where: { $0.language.name == "en" })?.flavorText {
+            lblDescription.text = removeNewlines(from: flavorText)
+            print("item: \(removeNewlines(from: flavorText))")
+        }
+        lblGeneration.text = detail.generation.name.capitalized
+        lblHabitat.text = detail.habitat.name.capitalized
+        lblShape.text = detail.shape.name.capitalized
+        lblName.text = selectedPokemon!.name.capitalized
+        lblNumber.text = "#\(selectedPokemon!.id)"
+        let type1 = selectedPokemon!.types[0].type.name
+        lblType.text = type1.capitalized
+        lblType.backgroundColor = Helper().getLabelColor(label: type1)
+        lblType.layer.masksToBounds = true
+        lblType.layer.cornerRadius = 5
+        lblType.text = type1.uppercased()
+        if selectedPokemon!.types.count > 1 {
+            let type2 = selectedPokemon!.types[1].type.name
+            lblType2.isHidden = false
+            lblType2.text = type2.uppercased()
+            lblType2.layer.masksToBounds = true
+            lblType2.layer.cornerRadius = 5
+            lblType2.text = type2.uppercased()
+            lblType2.backgroundColor = Helper().getLabelColor(label: type2)
+        } else {
+            lblType2.isHidden = true
+        }
+    }
+
+    func loadPokemonImage(from urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.imgPokemon.image = UIImage(data: data)
+            }
+        }.resume()
+    }
+
     func removeNewlines(from inputString: String) -> String {
         let cleanedString = inputString.replacingOccurrences(of: "\n", with: " ")
-        return cleanedString.replacingOccurrences(of: "\u{0C}", with: " ")    }
+        return cleanedString.replacingOccurrences(of: "\u{0C}", with: " ")
+    }
+
+    
 }
