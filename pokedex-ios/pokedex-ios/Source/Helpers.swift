@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 
-class Helper{
-    func getLabelColor(label : String) -> UIColor {
+class Helpers {
+    static func getLabelColor(label : String) -> UIColor {
         switch label {
             case "normal":
                 return UIColor(red: 0.78, green: 0.78, blue: 0.60, alpha: 1.00)
@@ -52,32 +52,30 @@ class Helper{
                 return UIColor(red: 0.78, green: 0.78, blue: 0.60, alpha: 1.00)
         }
     }
-    func setBackgroundColor(from string: String, to view: UIView) {
-        switch string {
+    static func getBackgroundColor(label: String) -> UIColor {
+        switch label {
         case "red":
-            // light red for the background
-            
-            view.backgroundColor = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.0)
+            return UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.0)
         case "blue":
-            view.backgroundColor = UIColor(red: 0.10, green: 0.70, blue: 0.87, alpha: 1.00)
+            return UIColor(red: 0.10, green: 0.70, blue: 0.87, alpha: 1.00)
         case "yellow":
-            view.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.75, alpha: 1.0)
+            return UIColor(red: 1.0, green: 1.0, blue: 0.75, alpha: 1.0)
         case "green":
-            view.backgroundColor = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
+            return UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
         case "black":
-            view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
+            return UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
         case "brown":
-            view.backgroundColor = UIColor(red: 0.85, green: 0.7, blue: 0.5, alpha: 1.0)
+            return UIColor(red: 0.85, green: 0.7, blue: 0.5, alpha: 1.0)
         case "purple":
-            view.backgroundColor = UIColor(red: 0.8, green: 0.7, blue: 1.0, alpha: 1.0)
+            return UIColor(red: 0.8, green: 0.7, blue: 1.0, alpha: 1.0)
         case "gray":
-            view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+            return UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         case "white":
-            view.backgroundColor = UIColor(red: 0.96, green: 0.97, blue: 0.96, alpha: 1.00)
+            return UIColor(red: 0.96, green: 0.97, blue: 0.96, alpha: 1.00)
         case "pink":
-            view.backgroundColor = UIColor(red: 1.0, green: 0.75, blue: 0.85, alpha: 1.0)
+            return UIColor(red: 1.0, green: 0.75, blue: 0.85, alpha: 1.0)
         default:
-            view.backgroundColor = UIColor.white 
+            return UIColor.white 
         }
     }
 

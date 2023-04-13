@@ -49,7 +49,7 @@ class DetailViewController: ViewController {
 
     func configureDetailView(with detail: PokemonDetail) {
         let color = detail.color.name
-        Helper().setBackgroundColor(from: color, to: imgPokemonBackground)
+        imgPokemonBackground.backgroundColor = Helpers.getBackgroundColor(label: color)
         lblColor.text = color.capitalized
         if let flavorText = detail.flavorTextEntries.first(where: { $0.language.name == "en" })?.flavorText {
             lblDescription.text = removeNewlines(from: flavorText)
@@ -62,7 +62,7 @@ class DetailViewController: ViewController {
         lblNumber.text = "#\(selectedPokemon!.id)"
         let type1 = selectedPokemon!.types[0].type.name
         lblType.text = type1.capitalized
-        lblType.backgroundColor = Helper().getLabelColor(label: type1)
+        lblType.backgroundColor = Helpers.getLabelColor(label: type1)
         lblType.layer.masksToBounds = true
         lblType.layer.cornerRadius = 5
         lblType.text = type1.uppercased()
@@ -73,7 +73,7 @@ class DetailViewController: ViewController {
             lblType2.layer.masksToBounds = true
             lblType2.layer.cornerRadius = 5
             lblType2.text = type2.uppercased()
-            lblType2.backgroundColor = Helper().getLabelColor(label: type2)
+            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
         } else {
             lblType2.isHidden = true
         }
