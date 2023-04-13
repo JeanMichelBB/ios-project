@@ -17,7 +17,6 @@ extension User : CoreDataProviderProtocol {
     }
     
     func save(context: NSManagedObjectContext) -> UUID? {
-        
         if self.uuid == nil {
             self.uuid = UUID()
         }

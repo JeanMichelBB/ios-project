@@ -23,10 +23,11 @@ class CoreDataProvider {
             return []
         }
     }
+    
     static func save(context: NSManagedObjectContext) throws {
         do{
             try context.save()
-        }catch{
+        } catch {
             print ("EXCEPTION AT SAVE: \(error.localizedDescription)")
             throw error
         }

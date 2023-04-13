@@ -10,6 +10,7 @@ import UIKit
 
 
 class Helpers {
+    
     static func getLabelColor(label : String) -> UIColor {
         switch label {
             case "normal":
@@ -52,6 +53,7 @@ class Helpers {
                 return UIColor(red: 0.78, green: 0.78, blue: 0.60, alpha: 1.00)
         }
     }
+    
     static func getBackgroundColor(label: String) -> UIColor {
         switch label {
         case "red":

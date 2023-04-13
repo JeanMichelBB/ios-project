@@ -48,32 +48,35 @@ class DetailViewController: ViewController {
     }
 
     func configureDetailView(with detail: PokemonDetail) {
-        let color = detail.color.name
-        imgPokemonBackground.backgroundColor = Helpers.getBackgroundColor(label: color)
-        lblColor.text = color.capitalized
-        if let flavorText = detail.flavorTextEntries.first(where: { $0.language.name == "en" })?.flavorText {
-            lblDescription.text = removeNewlines(from: flavorText)
-            print("item: \(removeNewlines(from: flavorText))")
-        }
+        lblName.text = selectedPokemon!.name.capitalized
+        lblNumber.text = "#\(selectedPokemon!.id)"
         lblGeneration.text = detail.generation.name.capitalized
         lblHabitat.text = detail.habitat.name.capitalized
         lblShape.text = detail.shape.name.capitalized
-        lblName.text = selectedPokemon!.name.capitalized
-        lblNumber.text = "#\(selectedPokemon!.id)"
+        
+        let color = detail.color.name
+        imgPokemonBackground.backgroundColor = Helpers.getBackgroundColor(label: color)
+        lblColor.text = color.capitalized
+        
+        if let flavorText = detail.flavorTextEntries.first(where: { $0.language.name == "en" })?.flavorText {
+            lblDescription.text = removeNewlines(from: flavorText)
+        }
+        
         let type1 = selectedPokemon!.types[0].type.name
-        lblType.text = type1.capitalized
+        lblType.text = type1.uppercased()
         lblType.backgroundColor = Helpers.getLabelColor(label: type1)
         lblType.layer.masksToBounds = true
         lblType.layer.cornerRadius = 5
-        lblType.text = type1.uppercased()
+
         if selectedPokemon!.types.count > 1 {
-            let type2 = selectedPokemon!.types[1].type.name
             lblType2.isHidden = false
+            
+            let type2 = selectedPokemon!.types[1].type.name
+            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
             lblType2.text = type2.uppercased()
             lblType2.layer.masksToBounds = true
             lblType2.layer.cornerRadius = 5
-            lblType2.text = type2.uppercased()
-            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
+            
         } else {
             lblType2.isHidden = true
         }
@@ -81,8 +84,10 @@ class DetailViewController: ViewController {
 
     func loadPokemonImage(from urlString: String) {
         guard let url = URL(string: urlString) else { return }
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
+            
             DispatchQueue.main.async {
                 self.imgPokemon.image = UIImage(data: data)
             }
@@ -93,6 +98,4 @@ class DetailViewController: ViewController {
         let cleanedString = inputString.replacingOccurrences(of: "\n", with: " ")
         return cleanedString.replacingOccurrences(of: "\u{0C}", with: " ")
     }
-
-    
 }

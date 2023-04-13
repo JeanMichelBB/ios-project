@@ -40,12 +40,14 @@ class PokemonTableViewCell: UITableViewCell {
         lblType1.layer.cornerRadius = 5
         
         if pokemon.types.count > 1 {
-            let type2: String = pokemon.types[1].type.name
             lblType2.isHidden = false
+            
+            let type2: String = pokemon.types[1].type.name
             lblType2.text = type2.uppercased()
+            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
             lblType2.layer.masksToBounds = true
             lblType2.layer.cornerRadius = 5
-            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
+            
         } else {
             lblType2.isHidden = true
         }

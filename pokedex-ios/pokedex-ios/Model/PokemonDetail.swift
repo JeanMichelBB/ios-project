@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - PokemonDetail
 struct PokemonDetail: Codable {
     let color: Color
     let flavorTextEntries: [FlavorTextEntry]
@@ -28,18 +28,22 @@ struct PokemonDetail: Codable {
 struct Color: Codable {
     let name: String
 }
+
 // MARK: - Generation
 struct Generation: Codable {
     let name: String
 }
+
 // MARK: - Habitat
 struct Habitat: Codable {
     let name: String
 }
+
 // MARK: - Shape
 struct Shape: Codable {
     let name: String
 }
+
 // MARK: - Language
 struct Language: Codable {
     let name: String

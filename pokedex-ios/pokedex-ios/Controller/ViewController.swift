@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let context2 = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var loggedUser : User?
     
     @IBOutlet weak var txtLogUsername: UITextField!
     
@@ -17,7 +18,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imgBackground: UIImageView!
     
-    private var loggedUser : User?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
@@ -29,7 +32,7 @@ class ViewController: UIViewController {
             Toast.ok(view: self, title: "Oups", message: "The username and password are required", handler: nil)
             return false
         }
-        if let user = User.findByUsername(context: context2, username: username) {
+        if let user = User.findByUsername(context: context, username: username) {
             if user.password == password {
                 loggedUser = user
                 return true
@@ -48,15 +51,5 @@ class ViewController: UIViewController {
             let destination = segue.destination as! TableViewController
             destination.loggedUser = loggedUser
         }
-    
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-    }
-
-
 }
-
