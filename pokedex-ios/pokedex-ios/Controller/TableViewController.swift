@@ -31,6 +31,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
         tableView.delegate = self
         tableView.dataSource = self
+        
         self.loadData()
     }
     
@@ -45,6 +46,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 switch result {
                 case .failure(let error):
+                    
                     print("Error loading the pokemon list: \(error.localizedDescription)")
                     self?.isLoading = false
                     
@@ -52,7 +54,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self?.currentPage = page
                     
                     self?.pokemonInitialResponse.append(contentsOf: pokemonList)
+                    
                     self?.loadPokemonDetails(pokemonList: pokemonList)
+                    
                     self?.isLoading = false
                 }
             }
@@ -63,10 +67,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func loadPokemonDetails(pokemonList : [PokemonListItem]) -> Void {
         for element in pokemonList {
+            
             Network().getPokemon(name: element.name, completionHandler: { [weak self] (result) in
                 switch result {
                 case .success(let pokemon):
                     self!.pokemons.append(pokemon)
+                    self!.pokemons.sort { $0.id < $1.id }
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
@@ -78,7 +84,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
@@ -105,15 +110,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected pokemon: \(self.pokemons[indexPath.row].name)")
         self.selectedPokemon = self.pokemons[indexPath.row]
+        
         self.performSegue(withIdentifier: Segue.toDetailViewController, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segue.toDetailViewController {
             let detailViewController = segue.destination as! DetailViewController
-            
             detailViewController.selectedPokemon = self.selectedPokemon
         }
     }

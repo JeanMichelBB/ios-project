@@ -12,6 +12,7 @@ class Network {
     private var cachedPokemon : Pokemon?
     
     func getPokemonList(offset: Int, limit: Int, completionHandler: @escaping (Result<[PokemonListItem], Error>) -> Void){
+        
         let url = URL(string: "\(self.baseURL)?limit=\(limit)&offset=\(offset)")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -25,6 +26,7 @@ class Network {
                 completionHandler(.failure(error.localizedDescription as! Error))
             }
         }
+        
         task.resume()
     }
     
@@ -33,7 +35,9 @@ class Network {
             completionHandler(.success(cachedPokemon))
             return
         }
+        
         let url = URL(string: "\(self.baseURL)/\(name)")!
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) {
@@ -48,4 +52,21 @@ class Network {
         }
         task.resume()
     }
-}
+    func getPokemonDetail(name: String, completionHandler: @escaping (PokemonDetail) -> Void){
+        let url = URL(string: "\(self.baseURL)-species/\(name)")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                if let pokemonDetail = try? JSONDecoder().decode(PokemonDetail.self, from: data) {
+                        completionHandler(pokemonDetail)
+                    } else {
+                        print("Pokemon detail: Invalid Response")
+                    }
+                } else if let error = error {
+                    print("Pokemon detail HTTP Request Failed \(error)")
+                }
+            }
+        task.resume()
+        }
+    }
+
