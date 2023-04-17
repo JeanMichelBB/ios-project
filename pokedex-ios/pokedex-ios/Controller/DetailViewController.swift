@@ -21,10 +21,8 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var lblDescription: UILabel!
     
-    @IBOutlet weak var lblColor: UILabel!
-    
     @IBOutlet weak var lblGeneration: UILabel!
-    
+
     @IBOutlet weak var lblHabitat: UILabel!
     
     @IBOutlet weak var lblShape: UILabel!
@@ -48,15 +46,15 @@ class DetailViewController: ViewController {
     }
 
     func configureDetailView(with detail: PokemonDetail) {
+        self.title = "\(selectedPokemon!.name.capitalized)"
         lblName.text = selectedPokemon!.name.capitalized
         lblNumber.text = "#\(selectedPokemon!.id)"
-        lblGeneration.text = detail.generation.name.capitalized
-        lblHabitat.text = detail.habitat.name.capitalized
-        lblShape.text = detail.shape.name.capitalized
+        lblGeneration.text = "\(detail.generation.name.capitalized)"
+        lblHabitat.text = "\(detail.habitat.name.capitalized)"
+        lblShape.text = "\(detail.shape.name.capitalized)"
         
         let color = detail.color.name
         imgPokemonBackground.backgroundColor = Helpers.getBackgroundColor(label: color)
-        lblColor.text = color.capitalized
         
         if let flavorText = detail.flavorTextEntries.first(where: { $0.language.name == "en" })?.flavorText {
             lblDescription.text = removeNewlines(from: flavorText)
@@ -79,6 +77,8 @@ class DetailViewController: ViewController {
             
         } else {
             lblType2.isHidden = true
+            lblType.center = self.view.center
+            lblType.center.x = self.view.center.x
         }
     }
 
