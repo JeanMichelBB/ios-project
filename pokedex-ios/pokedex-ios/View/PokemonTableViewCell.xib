@@ -65,6 +65,7 @@
                         <size key="shadowOffset" width="1" height="-1"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
                     <constraint firstItem="zPw-lG-gy4" firstAttribute="leading" secondItem="tUX-MB-iF5" secondAttribute="trailing" constant="8" id="1lY-IG-mae"/>
                     <constraint firstItem="u2U-cU-8kS" firstAttribute="baseline" secondItem="gnI-Va-WZK" secondAttribute="baseline" id="2Nd-hC-Z1H"/>
@@ -92,6 +93,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
