@@ -18,12 +18,41 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imgBackground: UIImageView!
     
+    @IBOutlet weak var btmLogin: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func hideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification){
+        self.view.frame.origin.y = 0
+
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpace = self.view.frame.height - (btmLogin.frame.origin.y + btmLogin.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+        }
+    }
+    @objc private func keyboardWillHide(){
+        self.view.frame.origin.y = 0
+    }
+    
+    deinit{
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
+     /*
         if identifier == Segue.toRegistrationViewController {
             return true
         }
@@ -43,7 +72,9 @@ class ViewController: UIViewController {
         } else {
             Toast.ok(view: self, title: "Oups", message: "The username is incorrect", handler: nil)
             return false
-        }
+        } */
+        
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
