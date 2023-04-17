@@ -35,6 +35,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.loadData()
     }
     
+    
+    @IBAction func btnReloadTapped(_ sender: Any) {
+        tableView.reloadData()
+    }
+    
     func loadData() {
         self.isLoading = true
         

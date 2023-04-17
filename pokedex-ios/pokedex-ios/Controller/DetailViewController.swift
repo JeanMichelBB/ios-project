@@ -46,7 +46,7 @@ class DetailViewController: ViewController {
     }
 
     func configureDetailView(with detail: PokemonDetail) {
-        self.title = "\(selectedPokemon!.name.capitalized)"
+        self.title = "\(selectedPokemon!.name.capitalized) Details"
         lblName.text = selectedPokemon!.name.capitalized
         lblNumber.text = "#\(selectedPokemon!.id)"
         lblGeneration.text = "\(detail.generation.name.capitalized)"
