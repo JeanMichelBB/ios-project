@@ -11,6 +11,7 @@ import CoreData
 protocol CoreDataProviderProtocol {
     func save(context : NSManagedObjectContext) -> UUID?
 }
+
 class CoreDataProvider {
     
     static func all(context: NSManagedObjectContext, entityName : String) -> [Any?]{
@@ -19,7 +20,7 @@ class CoreDataProvider {
             let allObjects = try context.fetch(request)
             return allObjects
         }catch{
-            print("EXCEPTION AT FETCH: \(error.localizedDescription)")
+            print("Exception at fetch: \(error.localizedDescription)")
             return []
         }
     }
@@ -28,7 +29,7 @@ class CoreDataProvider {
         do{
             try context.save()
         } catch {
-            print ("EXCEPTION AT SAVE: \(error.localizedDescription)")
+            print ("Exception at fetch: \(error.localizedDescription)")
             throw error
         }
     }

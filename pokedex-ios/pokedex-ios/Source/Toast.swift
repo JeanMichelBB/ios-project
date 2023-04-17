@@ -20,10 +20,7 @@ class Toast: UIAlertController {
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
             alert.dismiss(animated: true, completion: nil);
         })
-        
     }
-    
-    
     
     static func ok ( view : ViewController, title : String, message : String, handler: ((UIAlertAction) -> Void)? = nil ) {
  
@@ -33,5 +30,4 @@ class Toast: UIAlertController {
         
         view.present(alert, animated: true)
     }
-    
 }

@@ -52,6 +52,7 @@ class Network {
         }
         task.resume()
     }
+    
     func getPokemonDetail(name: String, completionHandler: @escaping (PokemonDetail) -> Void){
         let url = URL(string: "\(self.baseURL)-species/\(name)")!
         

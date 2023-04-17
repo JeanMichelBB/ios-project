@@ -8,9 +8,13 @@
 import UIKit
 import CoreData
 
-class RegistrationViewController: ViewController {
+class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let localContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var pickerGenderData : [String] = []
+    
+    var selectedGender : String = ""
 
     @IBOutlet weak var txtUsername: UITextField!
     
@@ -22,23 +26,40 @@ class RegistrationViewController: ViewController {
     
     @IBOutlet weak var switchPasswordVisibility: UISwitch!
     
+    @IBOutlet weak var pickerGender: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.pickerGender.delegate = self
+        self.pickerGender.dataSource = self
+        
+        pickerGenderData = ["Female", "Male", "Other", "Prefer not to say"]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerGenderData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerGenderData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedGender = self.pickerGenderData[row]
     }
     
     @IBAction func btnPasswordVisibilityTouchUpInside(_ sender: Any) {
-        
-        if (txtPassword1.isSecureTextEntry){
-            txtPassword1.isSecureTextEntry.toggle()
-            txtPassword2.isSecureTextEntry.toggle()
-        } else {
-            txtPassword1.isSecureTextEntry.toggle()
-            txtPassword2.isSecureTextEntry.toggle()
-        }
+        txtPassword1.isSecureTextEntry.toggle()
+        txtPassword2.isSecureTextEntry.toggle()
     }
     
     @IBAction func btnSignUpTouchUpInside(_ sender: Any) {
-        
+
         guard let username = txtUsername.text, let fullName = txtFullName.text, let password = txtPassword1.text, let passwordCheck = txtPassword2.text else {
             Toast.ok(view: self, title: "Oups", message: "Something is wrong", handler: nil)
             return
@@ -90,6 +111,8 @@ class RegistrationViewController: ViewController {
             newUser.username = username
             newUser.fullName = fullName
             newUser.password = password
+            newUser.gender = self.selectedGender
+            
             try context.save()
         }
         catch {
