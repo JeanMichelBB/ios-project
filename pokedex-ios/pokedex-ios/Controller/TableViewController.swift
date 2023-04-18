@@ -20,8 +20,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     public var loggedUser : User?
     
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var txtLoggedUser: UILabel!
-    @IBOutlet weak var btmReload: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +35,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.loadData()
     }
+    
     @IBAction func btnReloadTapped(_ sender: Any) {
         tableView.reloadData()
     }

@@ -16,9 +16,7 @@ class DetailViewController: ViewController {
     @IBOutlet weak var lblName: UILabel!
     
     @IBOutlet weak var lblNumber: UILabel!
-    
-    @IBOutlet weak var lblType: UILabel!
-    
+        
     @IBOutlet weak var lblDescription: UILabel!
     
     @IBOutlet weak var lblGeneration: UILabel!
@@ -27,7 +25,9 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var lblShape: UILabel!
     
-    @IBOutlet weak var lblType2: UILabel!
+    @IBOutlet weak var lblFirstTypes: UILabel!
+    
+    @IBOutlet weak var lblSecondTypes: UILabel!
     
     @IBOutlet weak var imgPokemonBackground: UIImageView!
     
@@ -48,8 +48,8 @@ class DetailViewController: ViewController {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         navigationController?.navigationBar.standardAppearance = appearance
         
-        lblType.translatesAutoresizingMaskIntoConstraints = false
-        lblType2.translatesAutoresizingMaskIntoConstraints = false
+        lblFirstTypes.translatesAutoresizingMaskIntoConstraints = false
+        lblSecondTypes.translatesAutoresizingMaskIntoConstraints = false
     }
 
     func configureDetailView(with detail: PokemonDetail) {
@@ -68,41 +68,44 @@ class DetailViewController: ViewController {
         }
         
         let type1 = selectedPokemon!.types[0].type.name
-        lblType.text = type1.uppercased()
-        lblType.backgroundColor = Helpers.getLabelColor(label: type1)
-        lblType.layer.masksToBounds = true
-        lblType.layer.cornerRadius = 5
-
+        lblFirstTypes.text = type1.uppercased()
+        lblFirstTypes.backgroundColor = Helpers.getLabelColor(label: type1)
+        lblFirstTypes.layer.masksToBounds = true
+        lblFirstTypes.layer.cornerRadius = 5
+        setConstraintTwoType()
+        
         if selectedPokemon!.types.count > 1 {
-            lblType2.isHidden = false
+            lblSecondTypes.isHidden = false
             
             let type2 = selectedPokemon!.types[1].type.name
-            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
-            lblType2.text = type2.uppercased()
-            lblType2.layer.masksToBounds = true
-            lblType2.layer.cornerRadius = 5
-            
-            lblType.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
-            lblType.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-            lblType.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
-            lblType.heightAnchor.constraint(equalToConstant: 28).isActive = true
-            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
-
-            lblType2.topAnchor.constraint(equalTo: lblType.topAnchor).isActive = true
-            lblType2.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
-            lblType2.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-            lblType2.heightAnchor.constraint(equalToConstant: 28).isActive = true
-            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
-
+            lblSecondTypes.backgroundColor = Helpers.getLabelColor(label: type2)
+            lblSecondTypes.text = type2.uppercased()
+            lblSecondTypes.layer.masksToBounds = true
+            lblSecondTypes.layer.cornerRadius = 5
         } else {
-            lblType2.isHidden = true
+            lblSecondTypes.isHidden = true
+        }
+    }
+    
+    func setConstraintTwoType(){
+        if selectedPokemon!.types.count > 1 {
+            lblFirstTypes.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
+            lblFirstTypes.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            lblFirstTypes.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
+            lblFirstTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
 
-            lblType.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
-            lblType.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-            lblType.heightAnchor.constraint(equalToConstant: 28).isActive = true
-            lblType.widthAnchor.constraint(equalToConstant: 200).isActive = true
-            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
-
+            lblSecondTypes.topAnchor.constraint(equalTo: lblFirstTypes.topAnchor).isActive = true
+            lblSecondTypes.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
+            lblSecondTypes.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+            lblSecondTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+        } else {
+            lblFirstTypes.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
+            lblFirstTypes.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+            lblFirstTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblFirstTypes.widthAnchor.constraint(equalToConstant: 170).isActive = true
+            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
         }
     }
 

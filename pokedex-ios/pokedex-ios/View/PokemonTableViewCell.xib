@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,10 +85,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgPokemon" destination="25c-6J-VoI" id="lcd-om-CiG"/>
+                <outlet property="lblFirstType" destination="zPw-lG-gy4" id="Z8p-Pe-GTJ"/>
                 <outlet property="lblName" destination="tUX-MB-iF5" id="9vH-5F-LQD"/>
                 <outlet property="lblNumber" destination="u2U-cU-8kS" id="0hI-dv-43r"/>
-                <outlet property="lblType1" destination="zPw-lG-gy4" id="XmK-Ab-gDc"/>
-                <outlet property="lblType2" destination="gnI-Va-WZK" id="HGm-RH-V4g"/>
+                <outlet property="lblSecondType" destination="gnI-Va-WZK" id="Ao7-G6-y8j"/>
             </connections>
             <point key="canvasLocation" x="-13.043478260869566" y="28.794642857142854"/>
         </tableViewCell>

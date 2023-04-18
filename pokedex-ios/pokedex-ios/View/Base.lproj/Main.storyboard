@@ -109,11 +109,19 @@
                             <constraint firstItem="fL6-eA-BRC" firstAttribute="leading" secondItem="E29-oB-Wpu" secondAttribute="leading" id="tKw-fd-NVC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hUy-IN-rll"/>
+                    <navigationItem key="navigationItem" id="hUy-IN-rll">
+                        <barButtonItem key="rightBarButtonItem" id="TDV-Z7-Xfn">
+                            <connections>
+                                <action selector="btnHidden:" destination="BYZ-38-t0r" id="xtN-fQ-yWY"/>
+                                <segue destination="7qF-Dr-5CU" kind="show" identifier="toTableViewControllerHidden" id="5fX-uu-zcq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="btmLogin" destination="fL6-eA-BRC" id="gyU-j5-xFr"/>
-                        <outlet property="txtLogPassword" destination="Agc-bU-WTw" id="gDp-Tv-QJU"/>
-                        <outlet property="txtLogUsername" destination="xNK-9k-aeL" id="Knt-xS-7qK"/>
+                        <outlet property="btnHidden" destination="TDV-Z7-Xfn" id="US4-wW-Kyf"/>
+                        <outlet property="btnLogin" destination="fL6-eA-BRC" id="9V6-37-0eL"/>
+                        <outlet property="txtLoginPassword" destination="Agc-bU-WTw" id="6nm-3u-vc7"/>
+                        <outlet property="txtLoginUsername" destination="xNK-9k-aeL" id="KLd-ZB-QCm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -272,12 +280,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create account" id="wWs-6J-O3k"/>
                     <connections>
-                        <outlet property="btmCreateAccount" destination="ZYn-sh-ifs" id="YPs-Vj-gbk"/>
                         <outlet property="pickerGender" destination="87D-Hm-5AK" id="Gaf-10-gbS"/>
                         <outlet property="switchPasswordVisibility" destination="ioi-t8-ifJ" id="BSd-wq-Hbi"/>
+                        <outlet property="txtFirstPassword" destination="VM6-Xm-sfi" id="0z8-Au-tdd"/>
                         <outlet property="txtFullName" destination="JDQ-GC-9we" id="IKR-am-QS4"/>
-                        <outlet property="txtPassword1" destination="VM6-Xm-sfi" id="i76-hA-4Eo"/>
-                        <outlet property="txtPassword2" destination="KNu-1R-84A" id="tjz-Js-dpM"/>
+                        <outlet property="txtSecondPassword" destination="KNu-1R-84A" id="j2L-JD-4vi"/>
                         <outlet property="txtUsername" destination="ozQ-F7-aUF" id="Ucl-Py-Cx9"/>
                     </connections>
                 </viewController>
@@ -324,7 +331,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btmReload" destination="C0b-bn-mC0" id="KFT-S1-jgS"/>
                         <outlet property="tableView" destination="Uxr-ak-lUw" id="0Zf-aA-rNy"/>
                         <outlet property="txtLoggedUser" destination="Ahb-lf-o1E" id="AWg-i4-5bf"/>
                         <segue destination="R6h-FK-SvL" kind="show" identifier="toDetailViewController" id="TTp-Zd-9Af"/>
@@ -524,13 +530,13 @@
                         <outlet property="imgPokemonBackground" destination="9yF-N0-p66" id="qiS-TO-rUR"/>
                         <outlet property="imgTextBackground" destination="Hjm-u4-q4k" id="vnn-RJ-QSE"/>
                         <outlet property="lblDescription" destination="Z59-UC-Kkt" id="GVe-h0-yE1"/>
+                        <outlet property="lblFirstTypes" destination="Gdg-ut-yM4" id="OYY-U4-fh8"/>
                         <outlet property="lblGeneration" destination="dw6-xx-X7H" id="uvT-2E-7gu"/>
                         <outlet property="lblHabitat" destination="HG4-BA-KdK" id="qpg-up-bzp"/>
                         <outlet property="lblName" destination="Noq-uo-am2" id="Ecp-NM-fDl"/>
                         <outlet property="lblNumber" destination="evd-8e-7od" id="g68-La-pg9"/>
+                        <outlet property="lblSecondTypes" destination="zqV-eM-jV2" id="GpC-57-ppR"/>
                         <outlet property="lblShape" destination="xNt-U5-YNV" id="Se5-Nl-FnC"/>
-                        <outlet property="lblType" destination="Gdg-ut-yM4" id="Dh9-1s-ECm"/>
-                        <outlet property="lblType2" destination="zqV-eM-jV2" id="VR9-jN-bm1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tQ-3D-ODg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -556,6 +562,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="3.3482142857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5fX-uu-zcq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="pokeball1_shadow.png" width="894" height="894"/>

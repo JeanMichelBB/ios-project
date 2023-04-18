@@ -12,13 +12,15 @@ class ViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var loggedUser : User?
     
-    @IBOutlet weak var txtLogUsername: UITextField!
+    @IBOutlet weak var txtLoginUsername: UITextField!
     
-    @IBOutlet weak var txtLogPassword: UITextField!
+    @IBOutlet weak var txtLoginPassword: UITextField!
     
     @IBOutlet weak var imgBackground: UIImageView!
     
-    @IBOutlet weak var btmLogin: UIButton!
+    @IBOutlet weak var btnLogin: UIButton!
+    
+    @IBOutlet weak var btnHidden: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -27,9 +29,6 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
     }
     
     @objc private func hideKeyboard(){
@@ -41,7 +40,7 @@ class ViewController: UIViewController {
 
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            if let bottom = btmLogin {
+            if let bottom = btnLogin {
                 let bottomSpace = self.view.frame.height - (bottom.frame.origin.y + bottom.frame.height)
                 self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
             }
@@ -57,12 +56,15 @@ class ViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-     /*
+     
         if identifier == Segue.toRegistrationViewController {
             return true
         }
-        guard let username = txtLogUsername.text, let password =
-                txtLogPassword.text else {
+        if identifier == Segue.toTableViewControllerHidden{
+            return true
+        }
+        guard let username = txtLoginUsername.text, let password =
+                txtLoginPassword.text else {
             Toast.ok(view: self, title: "Oups", message: "The username and password are required", handler: nil)
             return false
         }
@@ -77,9 +79,7 @@ class ViewController: UIViewController {
         } else {
             Toast.ok(view: self, title: "Oups", message: "The username is incorrect", handler: nil)
             return false
-        } */
-        
-        return true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

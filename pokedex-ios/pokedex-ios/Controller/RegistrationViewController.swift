@@ -20,23 +20,19 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var txtFullName: UITextField!
     
-    @IBOutlet weak var txtPassword1: UITextField!
+    @IBOutlet weak var txtFirstPassword: UITextField!
     
-    @IBOutlet weak var txtPassword2: UITextField!
+    @IBOutlet weak var txtSecondPassword: UITextField!
     
     @IBOutlet weak var switchPasswordVisibility: UISwitch!
     
     @IBOutlet weak var pickerGender: UIPickerView!
-    
-    
-    @IBOutlet weak var btmCreateAccount: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.pickerGender.delegate = self
         self.pickerGender.dataSource = self
-        
         
         pickerGenderData = ["Female", "Male", "Other", "Prefer not to say"]
         
@@ -102,13 +98,13 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func btnPasswordVisibilityTouchUpInside(_ sender: Any) {
-        txtPassword1.isSecureTextEntry.toggle()
-        txtPassword2.isSecureTextEntry.toggle()
+        txtFirstPassword.isSecureTextEntry.toggle()
+        txtSecondPassword.isSecureTextEntry.toggle()
     }
     
     @IBAction func btnSignUpTouchUpInside(_ sender: Any) {
 
-        guard let username = txtUsername.text, let fullName = txtFullName.text, let password = txtPassword1.text, let passwordCheck = txtPassword2.text else {
+        guard let username = txtUsername.text, let fullName = txtFullName.text, let password = txtFirstPassword.text, let passwordCheck = txtSecondPassword.text else {
             Toast.ok(view: self, title: "Oups", message: "Something is wrong", handler: nil)
             return
         }
@@ -131,25 +127,25 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
         
         if password.isEmpty {
             Toast.ok(view: self, title: "Oups", message: "Please, enter your password.", handler: {
-                action in self.txtPassword1.becomeFirstResponder()
+                action in self.txtFirstPassword.becomeFirstResponder()
             })
-            txtPassword1.becomeFirstResponder()
+            txtFirstPassword.becomeFirstResponder()
             return
         }
         
         if password != passwordCheck {
             Toast.ok(view: self, title: "Oups", message: "Password do not match.", handler: {
-                action in self.txtPassword2.becomeFirstResponder()
+                action in self.txtSecondPassword.becomeFirstResponder()
             })
-            txtPassword2.becomeFirstResponder()
+            txtSecondPassword.becomeFirstResponder()
             return
         }
         
         if (User.findByUsername(context: localContext, username: username) != nil){
             Toast.ok(view: self, title: "Oups", message: "Sorry, this User you enter alredy exist.", handler: {
-                action in self.txtPassword1.becomeFirstResponder()
+                action in self.txtFirstPassword.becomeFirstResponder()
             })
-            txtPassword1.becomeFirstResponder()
+            txtFirstPassword.becomeFirstResponder()
             return
         }
 
