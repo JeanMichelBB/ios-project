@@ -1,13 +1,17 @@
 # PokeDex App
+![pokemon2](https://user-images.githubusercontent.com/29681222/232871305-1367b1ec-a0b8-4c78-adde-dad4d89d2778.png)
+
 
 ## Developers: 
-- [@JeanMichelBB](https://github.com/JeanMichelBB)
-- [@anyruizd](https://github.com/anyruizd)
+- 🐣 [@JeanMichelBB](https://github.com/JeanMichelBB)
+- 🐈 [@anyruizd](https://github.com/anyruizd)
 
 ## API:
 https://pokeapi.co/
 
-## View 1: Login page
+## Views:
+
+### View 1: Login page
 
 - Button log in
 - Button sign up
@@ -16,7 +20,7 @@ https://pokeapi.co/
     - Password
 - ImageView: Poke ball
 
-## View 2: Registration page
+### View 2: Registration page
 
 - Input fields + labels: 
     - Username 
@@ -27,7 +31,7 @@ https://pokeapi.co/
 - UIPickerView: chose a gender
 - Core Data
 
-## View 3: List of pokemon's 
+### View 3: List of pokemon's 
 - IUBar
 - UITableView customized cell
     - Name 
@@ -36,7 +40,7 @@ https://pokeapi.co/
     - Type
 - Refresh button UIBarButtonItem ?
 
-## View 4: detail of selected pokemon's    
+### View 4: detail of selected pokemon's    
 - ImageView: (avatar)
 - Name 
 - Number
