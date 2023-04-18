@@ -44,10 +44,7 @@ class DetailViewController: ViewController {
             self?.loadPokemonImage(from: self!.selectedPokemon!.sprites.other.officialArtwork.frontDefault)
         }
         
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        navigationController?.navigationBar.standardAppearance = appearance
-        
+        // Disables default view resizing behavior.
         lblFirstTypes.translatesAutoresizingMaskIntoConstraints = false
         lblSecondTypes.translatesAutoresizingMaskIntoConstraints = false
     }

@@ -36,10 +36,7 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
         
         pickerGenderData = ["Female", "Male", "Other", "Prefer not to say"]
         
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        navigationController?.navigationBar.standardAppearance = appearance
-        
+        // Adds keyboard event listeners for registration.
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboardRegistration)))
            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowRegistration(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideRegistration), name: UIResponder.keyboardWillHideNotification, object: nil)
