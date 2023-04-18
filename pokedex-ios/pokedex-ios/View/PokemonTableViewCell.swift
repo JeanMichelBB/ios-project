@@ -15,9 +15,9 @@ class PokemonTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblName: UILabel!
     
-    @IBOutlet weak var lblType1: UILabel!
+    @IBOutlet weak var lblFirstType: UILabel!
     
-    @IBOutlet weak var lblType2: UILabel!
+    @IBOutlet weak var lblSecondType: UILabel!
     
     @IBOutlet weak var lblNumber: UILabel!
         
@@ -34,22 +34,22 @@ class PokemonTableViewCell: UITableViewCell {
         lblNumber.text = "#\(pokemon.id)"
         
         let type1: String = pokemon.types[0].type.name
-        lblType1.text = type1.uppercased()
-        lblType1.backgroundColor = Helpers.getLabelColor(label: type1)
-        lblType1.layer.masksToBounds = true
-        lblType1.layer.cornerRadius = 5
+        lblFirstType.text = type1.uppercased()
+        lblFirstType.backgroundColor = Helpers.getLabelColor(label: type1)
+        lblFirstType.layer.masksToBounds = true
+        lblFirstType.layer.cornerRadius = 5
         
         if pokemon.types.count > 1 {
-            lblType2.isHidden = false
+            lblSecondType.isHidden = false
             
             let type2: String = pokemon.types[1].type.name
-            lblType2.text = type2.uppercased()
-            lblType2.backgroundColor = Helpers.getLabelColor(label: type2)
-            lblType2.layer.masksToBounds = true
-            lblType2.layer.cornerRadius = 5
+            lblSecondType.text = type2.uppercased()
+            lblSecondType.backgroundColor = Helpers.getLabelColor(label: type2)
+            lblSecondType.layer.masksToBounds = true
+            lblSecondType.layer.cornerRadius = 5
             
         } else {
-            lblType2.isHidden = true
+            lblSecondType.isHidden = true
         }
         
         let frontDefaultImageUrl = pokemon.sprites.frontDefaultMini

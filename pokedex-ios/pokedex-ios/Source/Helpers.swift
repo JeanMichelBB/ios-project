@@ -73,7 +73,7 @@ class Helpers {
         case "gray":
             return UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         case "white":
-            return UIColor(red: 0.96, green: 0.97, blue: 0.96, alpha: 1.00)
+            return UIColor(red: 0.94, green: 0.92, blue: 0.98, alpha: 1.00)
         case "pink":
             return UIColor(red: 1.0, green: 0.75, blue: 0.85, alpha: 1.0)
         default:

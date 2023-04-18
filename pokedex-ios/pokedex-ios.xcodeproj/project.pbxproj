@@ -10,6 +10,7 @@
 		941DEE9329DCF63600272C20 /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DEE9229DCF63600272C20 /* PokemonList.swift */; };
 		945C621629DA0C9F00609629 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C621529DA0C9F00609629 /* Pokemon.swift */; };
 		945C621929DA434C00609629 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C621829DA434C00609629 /* Network.swift */; };
+		9497DA1029EC988E00685ED1 /* pokeball1_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497DA0F29EC988E00685ED1 /* pokeball1_shadow.png */; };
 		F124A28A29D31ED80037B276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28929D31ED80037B276 /* AppDelegate.swift */; };
 		F124A28C29D31ED80037B276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28B29D31ED80037B276 /* SceneDelegate.swift */; };
 		F124A28E29D31ED80037B276 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124A28D29D31ED80037B276 /* ViewController.swift */; };
@@ -18,7 +19,6 @@
 		F124A29629D31ED90037B276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F124A29529D31ED90037B276 /* Assets.xcassets */; };
 		F124A29929D31ED90037B276 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F124A29729D31ED90037B276 /* LaunchScreen.storyboard */; };
 		F14B638329E5A0FB006BD43B /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B638229E5A0FB006BD43B /* PokemonDetail.swift */; };
-		F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */ = {isa = PBXBuildFile; fileRef = F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */; };
 		F17B171229D9B45E0005F28A /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171129D9B45E0005F28A /* enumSegue.swift */; };
 		F17B171C29D9B64E0005F28A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171B29D9B64E0005F28A /* DetailViewController.swift */; };
 		F17B171E29D9B66A0005F28A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */; };
@@ -35,6 +35,7 @@
 		941DEE9229DCF63600272C20 /* PokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
 		945C621529DA0C9F00609629 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		945C621829DA434C00609629 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9497DA0F29EC988E00685ED1 /* pokeball1_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokeball1_shadow.png; sourceTree = "<group>"; };
 		F124A28629D31ED80037B276 /* pokedex-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pokedex-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F124A28929D31ED80037B276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F124A28B29D31ED80037B276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		F124A29829D31ED90037B276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F124A29A29D31ED90037B276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F14B638229E5A0FB006BD43B /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
-		F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Enamel_Pokeball_01_Top-View.png"; sourceTree = "<group>"; };
 		F17B171129D9B45E0005F28A /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
 		F17B171B29D9B64E0005F28A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F17B171D29D9B66A0005F28A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		F15458BC29D7630D0069AF0E /* img */ = {
 			isa = PBXGroup;
 			children = (
-				F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */,
+				9497DA0F29EC988E00685ED1 /* pokeball1_shadow.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -221,10 +221,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9497DA1029EC988E00685ED1 /* pokeball1_shadow.png in Resources */,
 				F124A29929D31ED90037B276 /* LaunchScreen.storyboard in Resources */,
 				F124A29629D31ED90037B276 /* Assets.xcassets in Resources */,
 				F1ED896D29DCFA8100956999 /* PokemonTableViewCell.xib in Resources */,
-				F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */,
 				F124A29129D31ED80037B276 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,8 +405,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,8 +434,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

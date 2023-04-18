@@ -20,6 +20,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     public var loggedUser : User?
     
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var txtLoggedUser: UILabel!
     
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         
         self.loadData()
+    }
+    
+    @IBAction func btnReloadTapped(_ sender: Any) {
+        tableView.reloadData()
     }
     
     func loadData() {

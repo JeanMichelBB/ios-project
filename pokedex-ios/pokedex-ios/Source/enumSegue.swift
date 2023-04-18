@@ -15,4 +15,5 @@ enum Segue {
     
     static let toRegistrationViewController = "toRegistrationViewController"
     
+    static let toTableViewControllerHidden = "toTableViewControllerHidden"
 }
