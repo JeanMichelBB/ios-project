@@ -69,7 +69,7 @@ class DetailViewController: ViewController {
         lblFirstTypes.backgroundColor = Helpers.getLabelColor(label: type1)
         lblFirstTypes.layer.masksToBounds = true
         lblFirstTypes.layer.cornerRadius = 5
-        setConstraintTwoType()
+        setTypeConstraint()
         
         if selectedPokemon!.types.count > 1 {
             lblSecondTypes.isHidden = false
@@ -85,24 +85,30 @@ class DetailViewController: ViewController {
     }
     
     func setTypeConstraint(){
+        
         if selectedPokemon!.types.count > 1 {
+            
             lblFirstTypes.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
             lblFirstTypes.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
             lblFirstTypes.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
-            lblFirstTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
             lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
 
             lblSecondTypes.topAnchor.constraint(equalTo: lblFirstTypes.topAnchor).isActive = true
             lblSecondTypes.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
             lblSecondTypes.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+            lblSecondTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+            
+            lblFirstTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
             lblSecondTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
-            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+
         } else {
             lblFirstTypes.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
-            lblFirstTypes.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+
             lblFirstTypes.heightAnchor.constraint(equalToConstant: 28).isActive = true
             lblFirstTypes.widthAnchor.constraint(equalToConstant: 170).isActive = true
-            lblFirstTypes.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+            
+            lblFirstTypes.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         }
     }
 
