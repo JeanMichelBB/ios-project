@@ -84,7 +84,7 @@ class DetailViewController: ViewController {
         }
     }
     
-    func setConstraintTwoType(){
+    func setTypeConstraint(){
         if selectedPokemon!.types.count > 1 {
             lblFirstTypes.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
             lblFirstTypes.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
