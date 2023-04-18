@@ -36,14 +36,20 @@ class DetailViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imgTextBackground.layer.cornerRadius = 50
-        
+        imgTextBackground.backgroundColor = .secondarySystemBackground
         Network().getPokemonDetail(name: selectedPokemon!.name) { [weak self] detail in
             DispatchQueue.main.async {
                 self?.configureDetailView(with: detail)
             }
             self?.loadPokemonImage(from: self!.selectedPokemon!.sprites.other.officialArtwork.frontDefault)
         }
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.standardAppearance = appearance
+
     }
+
 
     func configureDetailView(with detail: PokemonDetail) {
         self.title = "\(selectedPokemon!.name.capitalized) Details"

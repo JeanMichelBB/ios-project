@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        
     }
     
     @objc private func hideKeyboard(){
@@ -38,8 +41,10 @@ class ViewController: UIViewController {
 
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpace = self.view.frame.height - (btmLogin.frame.origin.y + btmLogin.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+            if let bottom = btmLogin {
+                let bottomSpace = self.view.frame.height - (bottom.frame.origin.y + bottom.frame.height)
+                self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+            }
         }
     }
     @objc private func keyboardWillHide(){

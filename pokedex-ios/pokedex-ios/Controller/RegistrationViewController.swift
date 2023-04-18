@@ -28,13 +28,30 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var pickerGender: UIPickerView!
     
+    
+    @IBOutlet weak var btmCreateAccount: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.pickerGender.delegate = self
         self.pickerGender.dataSource = self
         
+        
         pickerGenderData = ["Female", "Male", "Other", "Prefer not to say"]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.standardAppearance = appearance
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboardRegistration)))
+           NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowRegistration(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+           NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideRegistration), name: UIResponder.keyboardWillHideNotification, object: nil)
+       }
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -51,6 +68,37 @@ class RegistrationViewController: ViewController, UIPickerViewDelegate, UIPicker
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedGender = self.pickerGenderData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let title = pickerGenderData[row]
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black]
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+    
+    @objc private func hideKeyboardRegistration(){
+        self.view.endEditing(true)
+    }
+
+    @objc private func keyboardWillShowRegistration(notification: NSNotification){
+        self.view.frame.origin.y = 0
+
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            if let bottom = pickerGender {
+                let bottomSpace = self.view.frame.height - (bottom.frame.origin.y + bottom.frame.height)
+                self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+            }
+        }
+    }
+
+    @objc private func keyboardWillHideRegistration(){
+        self.view.frame.origin.y = 0
+    }
+
+    deinit{
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func btnPasswordVisibilityTouchUpInside(_ sender: Any) {
