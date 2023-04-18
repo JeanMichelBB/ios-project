@@ -29,7 +29,6 @@
 		F1A1B3C929E4B73B00D48AD7 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */; };
 		F1B3E8B529DC5BBD00547CEF /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3E8B429DC5BBD00547CEF /* Toast.swift */; };
 		F1CF332329E61CA600257010 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF332229E61CA600257010 /* Helpers.swift */; };
-		F1E4A2E729EE211700F6F572 /* 594337-200.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E4A2E629EE211700F6F572 /* 594337-200.png */; };
 		F1ED896C29DCFA8100956999 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */; };
 		F1ED896D29DCFA8100956999 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1ED896B29DCFA8100956999 /* PokemonTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -59,7 +58,6 @@
 		F1A1B3C829E4B73B00D48AD7 /* CoreDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		F1B3E8B429DC5BBD00547CEF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		F1CF332229E61CA600257010 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		F1E4A2E629EE211700F6F572 /* 594337-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "594337-200.png"; sourceTree = "<group>"; };
 		F1ED896A29DCFA8100956999 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 		F1ED896B29DCFA8100956999 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +131,6 @@
 		F15458BC29D7630D0069AF0E /* img */ = {
 			isa = PBXGroup;
 			children = (
-				F1E4A2E629EE211700F6F572 /* 594337-200.png */,
 				9497DA0F29EC988E00685ED1 /* pokeball1_shadow.png */,
 				9497DA0929EC954900685ED1 /* pokeball1.png */,
 				F15458BF29D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png */,
@@ -237,7 +234,6 @@
 				9497DA0A29EC954900685ED1 /* pokeball1.png in Resources */,
 				F15458C029D7636F0069AF0E /* Enamel_Pokeball_01_Top-View.png in Resources */,
 				F124A29129D31ED80037B276 /* Main.storyboard in Resources */,
-				F1E4A2E729EE211700F6F572 /* 594337-200.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
