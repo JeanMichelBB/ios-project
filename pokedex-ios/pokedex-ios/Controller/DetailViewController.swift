@@ -33,6 +33,30 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var imgTextBackground: UIImageView!
     
+    let exView : UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .red
+        return v
+    }()
+
+    let exView1 : UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .blue
+        return v
+    }()
+    
+    let exView2 : UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .green
+        return v
+    }()
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imgTextBackground.layer.cornerRadius = 50
@@ -47,7 +71,39 @@ class DetailViewController: ViewController {
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         navigationController?.navigationBar.standardAppearance = appearance
+        
+        
+        // Adding the subview
+        self.view.addSubview(exView)
+        self.view.addSubview(exView1)
+        self.view.addSubview(exView2)
+        applyConstraints()
+        
 
+    }
+    
+    func applyConstraints() {
+        
+//        exView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        exView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        exView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        exView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        exView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        exView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        exView1.topAnchor.constraint(equalTo: exView.bottomAnchor, constant: 20).isActive = true
+        exView1.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        exView1.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
+        exView1.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        exView2.topAnchor.constraint(equalTo: exView1.topAnchor).isActive = true
+        exView2.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
+        exView2.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        exView2.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        
+        
+        
     }
 
 
