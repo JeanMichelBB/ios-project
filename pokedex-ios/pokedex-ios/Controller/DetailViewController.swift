@@ -33,6 +33,8 @@ class DetailViewController: ViewController {
     
     @IBOutlet weak var imgTextBackground: UIImageView!
     
+
+    
     let exView : UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +79,8 @@ class DetailViewController: ViewController {
         self.view.addSubview(exView)
         self.view.addSubview(exView1)
         self.view.addSubview(exView2)
+        lblType.translatesAutoresizingMaskIntoConstraints = false
+        lblType2.translatesAutoresizingMaskIntoConstraints = false
         applyConstraints()
         
 
@@ -84,22 +88,9 @@ class DetailViewController: ViewController {
     
     func applyConstraints() {
         
-//        exView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        exView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-        exView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-//        exView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        exView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        exView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        exView1.topAnchor.constraint(equalTo: exView.bottomAnchor, constant: 20).isActive = true
-        exView1.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        exView1.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
-        exView1.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
-        exView2.topAnchor.constraint(equalTo: exView1.topAnchor).isActive = true
-        exView2.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
-        exView2.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        exView2.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+
 
         
         
@@ -137,10 +128,30 @@ class DetailViewController: ViewController {
             lblType2.layer.masksToBounds = true
             lblType2.layer.cornerRadius = 5
             
+            lblType.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
+            lblType.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            lblType.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -10).isActive = true
+            lblType.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+
+            //lblDescription constraint
+
+            lblType2.topAnchor.constraint(equalTo: lblType.topAnchor).isActive = true
+            lblType2.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 10).isActive = true
+            lblType2.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+            lblType2.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+
         } else {
             lblType2.isHidden = true
-            lblType.center = self.view.center
-            lblType.center.x = self.view.center.x
+
+            
+            lblType.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 20).isActive = true
+            lblType.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+            lblType.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            lblType.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            lblType.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -20).isActive = true
+
         }
     }
 
