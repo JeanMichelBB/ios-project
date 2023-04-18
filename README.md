@@ -1,10 +1,16 @@
-API: https://pokeapi.co/
+# PokeDex App
 
+## Developers: 
+- [@JeanMichelBB](https://github.com/JeanMichelBB)
+- [@anyruizd](https://github.com/anyruizd)
+
+## API:
+https://pokeapi.co/
 
 ## View 1: Login page
 
-- Button login
-- Button create
+- Button log in
+- Button sign up
 - Input fields + labels: 
     - Username 
     - Password
@@ -18,7 +24,6 @@ API: https://pokeapi.co/
     - Full name
 - Switch for revealing the password
 - Button: create account
-- ImageView: who is that pokemon? 
 - UIPickerView: chose a gender
 - Core Data
 
@@ -30,7 +35,6 @@ API: https://pokeapi.co/
     - Img (avatar)
     - Type
 - Refresh button UIBarButtonItem ?
-- UIPickerView: filter by type (optional)
 
 ## View 4: detail of selected pokemon's    
 - ImageView: (avatar)
